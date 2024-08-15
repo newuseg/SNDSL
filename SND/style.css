@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    height: 100vh;
+    margin-left: -10px;
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.load {
+    position: absolute;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.568);
+
+}
+
+.spinner {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    border-radius: 50%;
+    -webkit-mask: radial-gradient(farthest-side, #0000 40%, #474bff 41%);
+    background: linear-gradient(0deg, rgba(227, 227, 240, 0.5) 50%, rgb(133, 133, 139) 0) center/4.5px 100%,
+        linear-gradient(90deg, rgba(143, 145, 141, 0.25) 50%, rgba(186, 186, 235, 0.75) 0) center/100% 4.5px;
+    background-repeat: no-repeat;
+    animation: spinner-d3o0rx 1s infinite steps(12);
+}
+
+.spinner::before,
+.spinner::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.915;
+    transform: rotate(30deg);
+}
+
+.spinner::after {
+    opacity: 0.83;
+    transform: rotate(60deg);
+}
+
+@keyframes spinner-d3o0rx {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+
+.imgbox {
+    margin-top: 100px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgbox::-webkit-scrollbar {
+    height: 8px;
+}
+
+.imgbox::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.gallery {
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
+    /* ScrollBar Background*/
+    scroll-snap-type: x mandatory;
+    /*display: inline-block;*/
+}
+
+.imgbox img {
+    border-radius: 20px;
+    height: 400px;
+    margin-left: 20px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: center;
+}
+
+.menu li img {
+    width: 0px;
+    height: 0px;
+}
+
+.details {
+    background-color: rgb(101, 194, 150);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    gap: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    font-weight: bold;
+    margin-left: 20px;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            font-family: sans-serif;
+            background: rgb(80, 74, 74);
+        }
+
+        .nav {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgb(105, 228, 105);
+            color: rgb(129, 126, 126);
+            box-shadow: 2px 2px 5px white;
+        }
+
+        img {
+            position: absolute;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .nav a {
+            color: rgb(13, 119, 75);
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            position: absolute;
+            right: 10px;
+            transition: all .5s;
+        }
+
+        .nav a:hover {
+            color: rgb(67, 67, 116);
+            scale: .9;
+            text-decoration: underline;
+        }
+
+        .about {
+            margin-top: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .hindi,
+        .english {
+            margin: 20px 5px;
+            max-width: 400px;
+            border: 1px solid yellowgreen;
+            border-radius: 20px;
+        }
+
+        .first {
+            color: aqua;
+        }
+
+        .second {
+            color: rgb(28, 211, 211);
+        }
+
+        li {
+            content: "";
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        li::marker {
+            content: "👉"
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <h1>Study Now Dsl</h1>
+        <img src="white.jpg" alt="">
+        <a href="index.html">HOME</a>
+    </div>
+    <div class="about">
+        <div class="hindi">
+            <div class="first">
+                <li>DCA/ADCA नामक कोर्स कराया जाता है।</li>
+                <li>Course समाप्त हो जाने पर Certificate भी प्रदान किया जाता है।</li>
+                <li>यहाँ Library की भी सुविधा उपलब्ध है।</li>
+                <li>यहाँ Wifi की भी सुविधा उपलब्ध है।</li>
+                <li>यहाँ Hindi / English Typing की भी सुविधा उपलब्ध है।</li>
+                <li>यहाँ PageMaker / CoralDraw तथा Hardware / Software / Photoshop / Tally
+                    के कोर्स कराए जाते है।</li>
+                <li>यहाँ DOS | PAINT | MS OFFICE | INTERNET | HARDWARE SOFTWARE | PHOTOSHOP | PAGEMAKER | CORELDRAW
+                    TALLY के
+                    कोर्स कराए जाते हैं।</li>
+                <li>यहाँ Competition Club की सुविधा उपलब्ध है।</li>
+            </div>
+            <div class="second">
+                <li>NC से 10th के लिए कोचिंग की व्यवस्था।</li>
+                <li>BSEB तथा CBSE Pattern पर आधारित व्यवस्था</li>
+                <li>सभी विषयों की पढ़ाई कराई जाती है।</li>
+                <li>कमजोर विद्यार्थियों के लिए अलग से व्यवस्था</li>
+                <li>यहाँ कम्प्युटर भी सिखाया जाता है।</li>
+                <li>Lab और Theory की व्यवस्था ।</li>
+                <li>Weekly & Monthly Test</li>
+            </div>
+        </div>
+        <div class="english">
+            <div class="first">
+                <li>A course called DCA/ADCA is conducted.</li>
+                <li>Certificate is also provided after completion of the course.</li>
+                <li>Library facility is also available here.</li>
+                <li>यहाँ Wifi की भी सुविधा उपलब्ध है।</li>
+                <li>Hindi/English Typing facility is also available here.</li>
+                <li>Here PageMaker / CoralDraw and Hardware / Software / Photoshop / Tally Courses are conducted.</li>
+                <li>Here DOS | PAINT | MS OFFICE | INTERNET | HARDWARE SOFTWARE | PHOTOSHOP | PAGEMAKER | CORELDRAW
+                    TALLY
+                    Courses are conducted.</li>
+                <li>Competition Club facility is available here.</li>
+            </div>
+            <div class="second">
+                <li>Coaching arrangements for NC to 10th.</li>
+                <li>System based on BSEB and CBSE Pattern</li>
+                <li>All subjects are taught.</li>
+                <li>Separate arrangements for weak students</li>
+                <li>Computers are also taught here.</li>
+                <li>Arrangements for Lab and Theory.</li>
+                <li>Provides a Weekly & Monthly Test here.</li>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

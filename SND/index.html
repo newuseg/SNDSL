@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="white.jpg ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            margin-left: -10px;
+            background-color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .load {
+            position: absolute;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.568);
+
+        }
+
+        .spinner {
+            position: absolute;
+            width: 56px;
+            height: 56px;
+            display: grid;
+            border-radius: 50%;
+            -webkit-mask: radial-gradient(farthest-side, #0000 40%, #474bff 41%);
+            background: linear-gradient(0deg, rgba(227, 227, 240, 0.5) 50%, rgb(133, 133, 139) 0) center/4.5px 100%,
+                linear-gradient(90deg, rgba(143, 145, 141, 0.25) 50%, rgba(186, 186, 235, 0.75) 0) center/100% 4.5px;
+            background-repeat: no-repeat;
+            animation: spinner-d3o0rx 1s infinite steps(12);
+        }
+
+        .spinner::before,
+        .spinner::after {
+            content: "";
+            grid-area: 1/1;
+            border-radius: 50%;
+            background: inherit;
+            opacity: 0.915;
+            transform: rotate(30deg);
+        }
+
+        .spinner::after {
+            opacity: 0.83;
+            transform: rotate(60deg);
+        }
+
+        @keyframes spinner-d3o0rx {
+            100% {
+                transform: rotate(1turn);
+            }
+        }
+
+
+        .imgbox {
+            margin-top: 100px;
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .imgbox::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .imgbox::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+        .gallery {
+            display: flex;
+            align-items: center;
+            overflow-y: auto;
+            /* ScrollBar Background*/
+            scroll-snap-type: x mandatory;
+            /*display: inline-block;*/
+        }
+
+        .imgbox img {
+            border-radius: 20px;
+            height: 400px;
+            margin-left: 20px;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: center;
+        }
+
+        .menu li img {
+            width: 0px;
+            height: 0px;
+        }
+
+        @media only screen and (min-width: 540px) {
+
+            .mobile {
+                width: 100%;
+                height: 75px;
+                cursor: pointer;
+                background-color: #fff;
+                position: fixed;
+                border-radius: 5px;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                box-shadow: 1px 1px 10px #292525;
+            }
+
+            .img {
+                position: absolute;
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                left: 20px;
+                top: 10px;
+            }
+
+            .menu {
+                position: absolute;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                width: 80%;
+                right: 0;
+                top: 15px;
+                font-weight: bold;
+            }
+
+            li {
+                list-style: none;
+            }
+
+            li a {
+                text-decoration: none;
+                color: #727171;
+                font-size: 16px;
+                padding: 10px 1px;
+                margin-left: 35px;
+                transition: all .5s;
+            }
+
+            li a i {
+                font-size: 20px;
+                transition: 1s;
+            }
+
+            .menu li img {
+                position: absolute;
+                border-radius: 10%;
+                width: 20px;
+                height: 20px;
+                transition: 1s;
+            }
+
+            li a i:hover {
+                font-size: 30px;
+                content: attr(title);
+            }
+
+            li a img:hover {
+                width: 25px;
+                height: 25px;
+                content: attr(title);
+            }
+
+            li a:hover {
+                font-size: 20px;
+                color: black;
+                border-radius: 5px;
+                transition: all 1s;
+            }
+
+            .navbar a {
+                color: transparent;
+            }
+
+            .navv li img {
+                height: 0;
+                width: 0;
+            }
+
+            .navv li i {
+                position: absolute;
+                top: -50%;
+            }
+
+            .navv {
+                height: 0;
+            }
+        }
+
+        @media only screen and (max-width: 540px) {
+            .imgbox image {
+                width: 90%;
+            }
+
+            .img {
+                position: fixed;
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                right: 20px;
+                top: 10px;
+            }
+
+            .menu li,
+            .menu li a {
+                color: transparent;
+                position: absolute;
+                width: 0;
+                height: 0;
+                top: 0;
+            }
+
+            li {
+                list-style: none;
+            }
+
+            .navv li a {
+                text-decoration: none;
+                color: #727171;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 10px 1px;
+                margin-left: 35px;
+                transition: all .5s;
+            }
+
+            li a i {
+                font-size: 25px;
+            }
+
+            li a i:hover {
+                content: attr(title);
+            }
+
+            .navv li img {
+                position: absolute;
+                border-radius: 10%;
+                width: 25px;
+                height: 25px;
+                transition: 1s;
+            }
+
+            /* Navbar staring.-----------------------------------*/
+            .navbar {
+                height: 100vh;
+                width: 0;
+                background-color: #333;
+                box-shadow: 2px 2px 10px rgb(133, 82, 82);
+                position: fixed;
+                top: 0;
+                left: 0;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+                z-index: 0;
+                margin-top: 30px;
+            }
+
+            .mobile {
+                width: 100%;
+                height: 75px;
+                cursor: pointer;
+                background-color: #fff;
+                border-radius: 5px;
+                z-index: 1;
+                position: fixed;
+                top: 0;
+                left: 0;
+                box-shadow: 1px 1px 10px #ddd1d1;
+            }
+
+            /* Navbar JavaScript....*/
+            .navs {
+                width: 130px;
+            }
+
+            .navbar a {
+                color: yellow;
+                padding: 15px;
+                text-decoration: none;
+                font-size: 20px;
+                display: block;
+                transition: all .5s;
+            }
+
+            .navbar a:hover {
+                color: rgb(93, 230, 93);
+                /* Navbar is ended..............................*/
+            }
+
+            .box {
+                width: 35px;
+                padding: 5px;
+                margin: 20px 15px;
+            }
+
+            .mobile span {
+                display: block;
+                height: 3px;
+                width: 25px;
+                background-color: rgb(82, 90, 88);
+                margin: 5px;
+                transition: .6s;
+            }
+
+            .mobile .box:hover>span {
+                background-color: black;
+                box-shadow: 2px 2px 10px rgb(66, 66, 66);
+            }
+
+            .js .line1 {
+                transform: translate(5%, 300%) rotate(-500deg);
+            }
+
+            .js .line2 {
+                transform: scale(0);
+            }
+
+            .js .line3 {
+                transform: translate(5%, -250%) rotate(315deg);
+                /* Toggle Designing End.................................*/
+            }
+
+            .menu {
+                position: absolute;
+                top: -50%;
+            }
+        }
+
+        .details {
+            background-color: rgb(101, 194, 150);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            gap: 30px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        p {
+            font-weight: bold;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="load">
+        <div class="spinner"></div>
+    </div>
+
+    </div>
+    <div class="container">
+        <div class="mobile">
+            <img class="img" src="black.jpg" alt="">
+            <div class="box" onclick="togg()">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+            <div class="menu">
+                <li><a href="#" onclick="home()">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="https://wa.me/+918409136421"><i class="fa-brands fa-square-whatsapp"
+                            style="color: #05a34a;" title="Whatsapp"></i></a></li>
+                <li><a href="https://youtube.com/@studynowdsl?si=us8iI7KLocH9nY05"><i class="fa-brands fa-youtube"
+                            style="color: #df1111;" title="YouTube"></i></a></li>
+                <li><a href="https://www.facebook.com/studynowdsl?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"
+                            style="color: #0b61f4;" title="Facebook"></i></a></li>
+                <li><a
+                        href="https://www.instagram.com/study_now_dsl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img
+                            src="instagram.jpeg" alt="" title="Instagram"></a></li>
+            </div>
+        </div>
+        <div class="navbar">
+            <div class="navv">
+                <li><a href="#" onclick="home()">HOME</a></li>
+                <li><a href="about.html" onclick="about()">ABOUT</a></li>
+                <li><a href="https://wa.me/+918409136421"><i class="fa-brands fa-square-whatsapp"
+                            style="color: #29cc70;" title="Whatsapp"></i></a></li>
+                <li><a href="https://youtube.com/@studynowdsl?si=us8iI7KLocH9nY05"><i class="fa-brands fa-youtube"
+                            style="color: #f1413b;" title="YouYube"></i></a></li>
+                <li><a href="https://www.facebook.com/studynowdsl?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"
+                            style="color: #4d9ce6;" title="Facebook"></i></a></li>
+                <li><a
+                        href="https://www.instagram.com/study_now_dsl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img
+                            src="instagram.jpeg" alt="" title="Instagram"></a></li>
+            </div>
+        </div>
+    </div>
+
+    <div class="imgbox">
+        <div class="gallery" id="scroller">
+            <img src="img2.jpg" alt="Image 2">
+            <img src="img1.jpg" alt="Image 1">
+            <img src="img3.jpg" alt="Image 3">
+            <img src="img4.jpg" alt="Image 4">
+            <img src="img5.jpg" alt="Image 5">
+            <img src="img6.jpg" alt="Image 6">
+            <img src="img7.jpg" alt="Image 7">
+        </div>
+    </div>
+
+    <div class="details">
+        <p>&copy;2024 Location : Raj Bhawan, Lal Chowk, Manjhouli, Bikram, Patna, 801104</p>
+        <h3>Contact :- <p>Call : 7004476676</p>
+            <p>Whatsapp: 8409136421</p>
+            <p>Email : studynowdsl@gmail.com</p>
+        </h3>
+    </div>
+
+    <script>
+        const load = document.querySelector('.load')
+        window.addEventListener('DOMContentLoaded', () =>{
+            setTimeout(() => {
+                load.style.display = 'none'
+            },1000);
+        })
+    </script>
+    <script>
+        function contact() {
+            if (isAboutRunning) {
+                return;
+            }
+            isContactRunning = true;
+            let navbar = document.querySelector('.number');
+            navbar.classList.toggle("num");
+            isContactRunning = false;
+        }
+    </script>
+    <script>
+
+        const scroller = document.getElementById('scroller');
+
+        // Drag to scroll functionality (optional)
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scroller.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - scroller.offsetLeft;
+            scrollLeft = scroller.scrollLeft;
+        });
+
+        scroller.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        scroller.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        scroller.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // Stop the function if not mousedown
+            e.preventDefault(); // Prevent default behavior
+            const x = e.pageX - scroller.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll-fast
+            scroller.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+    <script>
+        function togg() {
+            let navbar = document.querySelector('.navbar');
+            navbar.classList.toggle("navs")
+            var box = document.querySelector('.box');
+            box.classList.toggle('js');
+        }
+        function home() {
+            location.reload();  // reload the current page...
+        }
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
